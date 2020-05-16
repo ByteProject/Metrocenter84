@@ -1,0 +1,158 @@
+
+Inform 6.15 now released
+========================
+
+The Inform compiler has been given its first maintenance re-release
+since September.  Most of the bugs fixed are, as usual, fairly rare
+and can be worked around, but there are now enough of them to justify
+a fresh release.
+
+There are also three minor enhancements, one of them quite useful:
+----
+Parametrised object creation.  That is, if you define a class in which
+    objects can be created, and also give it a "create" property like so:
+
+         Class Monster
+         with ...
+              create
+              [ start_at new_species;
+                  move self to start_at;
+                  self.species = new_species;
+              ], ...
+
+    then you can now make creation calls like so:
+    
+         M = Monster.create(Tomb_of_Kings, Ogre);
+
+    The same applies to "recreate":
+    
+         Monster.recreate(M, Wall_of_Thorns, Hobbit);
+
+    An attempt to supply more than 3 parameters to either kind of creation
+    will result in a run-time error message.
+It is now legal to declare a Class with zero create-able objects:
+    
+         Class Moribund(0) ...
+
+    This is useful (i) to permit a definition like
+    
+         Class Gadgets(NUM_GADGETS)
+         
+    in some library file, where NUM_GADGETS is supplied by the library
+    file's user and might be zero; and/or (ii) to permit "recreate"
+    to be used on objects of the given class, reinitialising them
+    to the values set in the class definition.
+The ASCII form feed character (12 decimal) is now legal as white space.
+    More precisely, it is in all contexts treated as a line feed.
+----
+The Inform Technical Manual has as usual also been updated.
+
+As a temporary measure, you can get hold of the ANSI C source code
+for Inform 6.15 from the Inform 6 Home Page:
+
+    http://www.gnelson.demon.co.uk/inform.html
+
+Please note that there may be a delay of one to three days before
+the new material becomes "visible" from your region of the Internet,
+because of the regrettable way that my Internet service provider
+organises its WWW space.  The material will in any case be filed
+in its proper place at ftp.gmd.de shortly.
+
+My thanks, as ever, to those who have emailed me bug reports.
+I am always grateful for these, though it can sometimes take me
+a couple of weeks to reply when I have a serious email backlog,
+for which I apologise.  Please try to send me a short piece of
+source code demonstrating what you think is wrong, if possible:
+this saves on long explanations and makes it much easier for me
+to find the problem.
+
+
+    Graham Nelson
+    22 March 1998
+
+
+---------------------------------------------------------------------------
+Bugs fixed since 6.14 (as reproduced from the Technical Manual):
+
+Getting property lengths wrong for common property values referred to
+    using the superclass operator :: (a bug which sometimes manifests
+    itself in a crash when a common property routine belonging to a
+    superclass is called).
+Crashing when halting on a memory error because an extremely long string
+    of text has caused MAX_STATIC_STRINGS to be exceeded.  (The compiler
+    now ensures that MAX_STATIC_STRINGS is at least twice the size of
+    MAX_QTEXT_SIZE, which should be more than plenty.)
+Crashing when printing an extremely long "Expected ... but found ..."
+    error (where the second ... stands for an awfully long string of
+    text).
+An inability to assemble the optional third operand to the "@set_colour"
+    opcode (which is available to Version 6 games only).
+Array sizes are now formally checked to lie in the range 1 to 32767
+    entries, with an error message produced if they don't.
+Misinterpretation of array definitions with calculated sizes:
+
+         Array Muggins -> MAX_SERVERS * 50;
+
+    In Inform 6.14, this would be wrongly parsed as an array with one
+    entry, initialised to the value given: whereas 6.15 correctly parses
+    it as an array with MAX_SERVERS*50 initially zero entries.
+When constants are calculated with at compile time (as in the previous
+    bug), Inform 6.15 now detects overflows of signed addition,
+    subtraction and multiplication.  So if, for instance, MAX_SERVERS
+    is 100000, then the following error is produced:
+
+         Error:  Signed arithmetic on compile-time constants overflowed
+         the range -32768 to +32767: "100000 * 50 = 500000"
+
+Two bugs in the veneer (both found and fixed by Chris Hall): (i) a program
+    using ".create()" but not "provides" will go into a recursive loop
+    (this never happens if the Inform library is included);
+    (ii) more importantly, some creations of objects within classes
+    where deletions had previously occurred were resulting in two
+    different created objects sharing the same properties.
+Improper use of 'or' not always producing a good error message (sometimes
+    producing instead the compiler error "*** emitter overflow ***").
+    The more explanatory error message
+    
+         Error:  'or' not between values to the right of a condition
+
+    should now be produced in all such cases.
+Expressions featuring ) followed immediately by ( sometimes crashing
+    the expression evaluator.  For instance:
+
+         (ChooseRoutine())(1);
+         BigRoom.(BigDoor.dir_to)();
+
+    The grammar resolving whether a function call is intended, or
+    only a bracketed expression, has been refined so that, e.g.,
+    
+         <SetTo dial (4*the_time)>;
+
+    is not misinterpreted as containing one argument, the result of
+    the function call "dial(4*the_time)".  (If you want this, you must
+    put brackets around it.)
+Named action constants (like ##Take) not being correctly numbered after
+    the 256th in order of first usage.
+The "Default" directive for setting constants not properly handling
+    some values which are other than numerical -- e.g.,
+    
+         Default Story "Untitled Story";
+
+    would not have worked correctly under Inform 6.14.
+Backpatching "compiler errors" are now suppressed if errors have already
+    been reported (because in some circumstances, error recovery is
+    good enough to allow compilation to continue but not good enough
+    to leave a self-consistent backpatch table in the affected area).
+    Error recovery from missed close-quotation-marks in object
+    definitions has been marginally improved in some cases.
+
+Use of the Inform 5 statements 'print_paddr', 'print_addr' and
+    'print_char' (all illegal in Inform 6) now results in an obsolete
+    usage message which prints up the necessary Inform 6 equivalent.
+The statistics output now includes the story file's serial codes, in the
+    traditional <release number>.<serial code> format.
+
+Note that v6.15 Technical Manual now contains an algorithm for
+    syntax-colouring Inform source code, incorporating corrections made
+    by John Wood.
+---------------------------------------------------------------------------

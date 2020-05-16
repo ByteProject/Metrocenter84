@@ -1,0 +1,100 @@
+.\" Copyright (c) 2019 Andy Kosela <akosela@andykosela.com>
+.\" All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in
+.\"    the documentation and/or other materials provided with the
+.\"    distribution.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS''
+.\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+.\" TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+.\" PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR
+.\" CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+.\" SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+.\" LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+.\" USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+.\" ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+.\" OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+.\" OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.\"
+.\"
+.Dd September 18, 2019
+.Dt I6 6
+.Os
+.Sh NAME
+.Nm i6
+.Nd Inform 6 programming language
+.Sh SYNOPSIS
+.Nm
+.Ar game.inf
+.Nm
+.Op Fl 5
+.Ar game.inf
+.Nm
+.Op Fl h
+.Pp
+.Sh DESCRIPTION
+Inform is a design system for interactive fiction, created in 1993.
+
+Interactive fiction is a literary form which involves programming a
+computer so that it presents a reader with a text which can be explored.
+Inform aims to make the burden of learning to program such texts as
+light as possible.  It is a tool for writers intrigued by computing, and
+computer programmers intrigued by writing.  Perhaps these are not so
+very different pursuits, in their rewards and pleasures:
+
+    The sheer joy of making things... the fascination of fashioning
+    complex puzzle-like objects of interlocking moving parts and
+    watching them work in subtle cycles... the delight of working in
+    such a tractable medium.  The programmer, like the poet, works only
+    slightly removed from pure thought-stuff.  He builds his castles in
+    the air, from air, creating by exertion of the imagination.
+    (Frederick P. Brooks, "The Mythical Man-Month", 1972)
+
+i6 is a wrapper tool for Retro-Inform, a compiler based on Inform 6.15.
+Version 6.15 was the last release which supported creating Z-code version
+3 games which are suitable to be played on 8-bit micros. Additional
+Atari XL/XE disk images are created alongside your Z-code files.
+
+More resources:
+ http://www.inform-fiction.org
+ http://www.brasslantern.org
+ http://www.ifarchive.org
+ http://en.wikipedia.org/wiki/Interactive_fiction
+.Sh OPTIONS
+The following command line arguments are supported:
+.Bl -tag -width Fl
+.It Fl 5
+create Z-code V5 release.
+.It Fl h
+show usage.
+.Sh EXAMPLES
+.nf
+$ i6 game.inf
+
+which compiles your source file into a Z-code v3 release.  It also
+creates Atari XL/XE MD disk image ready to be played.
+.Sh FILES
+.Bl -tag -width ".Pa /usr/share"
+.It Pa /usr/share/inform615
+.Sh SEE ALSO
+.Xr frotz 6
+.Sh AUTHORS
+.An Graham Nelson <graham@gnelson.demon.co.uk> -- Inform programming
+language and compiler
+.An Andy Kosela <akosela@andykosela.com> -- i6 tool and packaging
+.An Stefan Vogt <stefan@8-bit.info> -- i6 adaption for RetroInform
+.Sh THANKS TO
+Will Crowther and Don Woods for creating the original Adventure, Infocom
+for the Z-machine standard and memorable titles like Zork, Graham Nelson
+for designing this beautiful engine for creating worlds in text.
+
+rec.arts.int-fiction and rec.games.int-fiction community of IF authors
+and enthusiasts.

@@ -1,0 +1,37 @@
+! ----------------------------------------------------------------------------
+!  And when he hath the kernel eat,
+!    Who doth not fling away the Shell?  - John Donne, "Community"
+! ----------------------------------------------------------------------------
+
+Switches e;  ! Use Economize mode - abbreviations are in parser.h
+
+Constant Story "SHELL";
+Constant Headline "^An Interactive Skeleton^\
+             Copyright (c) 1994 by (your name here).^";
+Release 1;
+
+!Constant MAX_SCORE 100;
+!Constant ENABLE_WEAR; ! disabling wearbale objects saves 500 bytes 
+!Constant DISABLE_INFERENCE; ! prevents assumption routines
+
+Include "Parser";
+
+!Replacement library messages.
+Object LibraryMessages
+with before [;
+   Jump:  "Nothing fruitful can be accomplished by jumping here.";
+];
+
+Include "VerbLib";
+
+Object Blank_Room "Blank Room"
+  with description "An empty room."
+  has  light;
+
+[ Initialise;
+  location = Blank_Room; !score = 0;
+  print "^^^^^Welcome to the shell...^^";
+];
+
+Include "Grammar";
+end;

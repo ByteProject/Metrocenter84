@@ -1,0 +1,707 @@
+
+
+
+               "You're traveling to another dimension,
+               a dimension not only of sight and sound, but of mind.
+               A journey into a wondrous land whose boundaries
+               are that of imagination."
+                                             -- Rod Sterling
+
+
+                 A Beginner's Guide to Interactive Fiction
+                            I-F Archive Edition
+                             by Joe W Aultman
+
+
+Welcome to interactive fiction, a medium dedicated to the power of words
+and of the imagination. It's a different kind of game. You won't find
+pretty images, music, or shoot-'em-up action, but you will find games
+that challenge and entertain, frustrate and delight.
+
+I discovered interactive fiction by exploring some free game disks that
+came with the Commodore 64 my mother gave me in 1983. I was enthralled,
+and I've spent the years since then introducing people to it when I can.
+Whether you're new to the genre or played around with it years ago, this
+document is for you. It's designed to serve as an instruction guide for
+almost all the I-F you're likely to come across. We'll cover a brief
+history, common commands, and playing tips.
+
+You are invited into the world-wide fan club. Hope you'll feel at home.
+It's a friendly place. Don't mind the low-tech computers sitting around.
+We use all kinds.
+
+
+                         Part One -- Introduction
+
+Interactive fiction was invented in the mid-1970's, at a time when the
+graphics and sound capabilities of computers were obviously poor. Game
+authors learned to use words alone to evoke images of fantastic places
+and magical events. Few games were produced, but they were new and fun
+and exciting. They could only run on mainframe and mini-computers,
+however, so they weren't incredibly wide-spread. Still, this early
+development left the genre well posed to move into the home as soon as
+the computers were there.
+
+The early to mid-1980's were a heyday for I-F. New games were written
+for personal computers, where they began to flourish. At first, they
+were a little small and constrained, but as the computers got more
+powerful, there was room for them to breathe. Authors could stretch
+their wings and experiment. For many years, all kinds of companies wrote
+commercial I-F, and made money. The real winners, however, were the
+fans, who enjoyed such classic works as Planetfall, Trinity, and the
+Zork series.
+
+But it didn't last. By the end of the eighties, sound and graphics cards
+were getting common. Games began to focus on treading the frontiers of
+those technologies. Companies found it hard to make pure I-F profitable,
+so they quit. Fans were left out in the cold. Some hacked together
+proprietary programs or wrote games using sub-par authoring systems, but
+little of real quality was produced. It was a dark age, but the programs
+were getting better.
+
+A few intrepid individuals kept the dream of new and sophisticated I-F
+alive by improving the authoring systems and inventing new ones. Slowly,
+it became possible for a clever and persistent individual to produce a
+game of quality equal to the best games of the eighties. And they did. A
+renaissance of I-F dawned, with fans becoming creators, and the
+creations winning over new fans.
+
+I-F still works today because good prose is timeless. Video games come
+and go as technology changes, but the best pictures are still in the
+mind.
+
+
+         Part II -- The I-F Environment and Creating Commands
+
+The I-F environment is most often all text. That pretty much explains
+why people call the games "text adventures." The basic idea of the user
+interface is command and response. The program gives you a command
+prompt, then you type in some command and press Enter/Return. The
+computer chews on your input for a bit, then tells you the results and
+gives you a new prompt.
+
+The most important question now is: "What do I type?"
+
+
+BASIC COMMANDS
+
+Most of the commands you use will be simple and direct. Typing OPEN THE
+DESK causes your character to (you guessed it) open the desk. Type GET
+THE PENCIL, and you will pick it up. The process is simple. When faced
+with the command prompt, just think "I want to..." or "What happens if
+I..." and let your mind work from there.
+
+When it's appropriate, modern games also have the power to handle much
+more complex commands like WRITE "GREEN" ON THE BLUE PIECE OF PAPER WITH
+THE RED PENCIL. It's not very common, mind you, because most actions are
+simply not that complex, but it's good to know the games can handle a
+command like that when they need to.
+
+Here is an incomplete list of commands that have been used in games over
+the years. Don't be shaken by the size of the list; you won't have to
+actually use very many of these in any one game. I only show it to you
+here to give you an idea of the possibilities.
+
+ANSWER, APPLY, ASK, ATTACK, AVOID, BEND, BITE, BLOW, BOARD, BREAK,
+BRING, BURN, BUY, CALL, CAST, CLEAN, CLIMB, CLOSE, CONNECT, COUNT,
+CROSS, CUT, DESTROY, DIAL, DIG, DISEMBARK, DIVE, DOFF, DON, DRINK, DROP,
+EAT, EMPTY, ENTER, ERASE, ESCAPE, EXAMINE, EXIT, EXTEND, EXTINGUISH,
+FILL, FIND, FLY, FOLLOW, GET, GIVE, GO, HELP, HIDE, HIT, HOLD, IGNITE,
+JUMP, KICK, KILL, KISS, KNOCK, LAUNCH, LEARN, LEAVE, LICK, LIE, LIGHT,
+LISTEN, LOCK, LOOK, MAKE, MARRY, MEASURE, MEMORIZE, MOVE, OFFER, OPEN,
+PICK, PLAY, POINT, POUR, PULL, PUSH, PUT, RAISE, READ, REMOVE, RIP,
+ROLL, SCRUB, SEARCH, SHAKE, SHOOT, SHOUT, SHOW, SIT, SLEEP, SLIDE,
+SMELL, STAIN, STAND, STAY, STEP, SWIM, TAKE, TASTE, TELL, THROW, TIE,
+TOUCH, TURN, TYPE, UNLOCK, UNTIE, WAIT, WAKE, WALK, WAVE, WEAR, WISH,
+WRITE, YELL
+
+Obviously, I can't go into detail about all these verbs, but let's look
+at some of the most important ones, which you _will_ need for virtually
+every game.
+
+EXAMINE (sometimes abbreviated X and/or EXA) gives you a closer look at
+things. It's used hundreds of times in the course of a typical game.
+
+LOOK (abbreviated L) by itself gives you a detailed description of your
+location. I always type L just to be doing something while I'm thinking
+of what to do next.
+
+   * This is one of the most versatile commands. You can LOOK AT THE
+     CHEST, LOOK ON THE CHEST, LOOK IN THE CHEST, LOOK UNDER THE CHEST,
+     LOOK BEHIND THE CHEST, and even (if the chest is transparent) LOOK
+     THROUGH THE CHEST. All of these could give different, unique
+     responses.
+
+   * If you find an information source like an encyclopedia, you can
+     often LOOK UP different subjects in it.
+
+   * LOOK AT is an exact synonym for EXAMINE, but SEARCH can be a very
+     different animal, indeed. SEARCHing is more thorough, and it can
+     turn up things that don't otherwise appear.
+
+GO is a very important command, even if you may never actually type it.
+Even though GO NORTH, for example, is a command you need to move around,
+you can abbreviate it to NORTH or even just N.
+
+   * The typical directions that can be abbreviated like this are:
+     UP (U), DOWN (D), IN, OUT, NORTH (N), NORTHEAST (NE), EAST (E),
+     SOUTHEAST (SE), SOUTH (S), SOUTHWEST (SW), WEST (W), and NORTHWEST
+     (NW).
+
+   * In some games with boats and the like, there are also FORE (F), AFT
+     (A), PORT (P), and STARBOARD (SB).
+
+GET, TAKE, and PICK UP are synonyms. You'll find many objects you can
+pick up and carry around with you. If you can't pick something up, the
+game will give you a reason, which you may be able to rectify.
+
+DROP and PUT are how you put objects down. DROP is quick and easy, but
+it just puts the objects on the ground. PUT can be more specific,
+though, allowing you to PUT THE BOOK ON THE TABLE, for instance.
+
+WAIT (sometimes Z) tells the computer you want to do nothing for a turn.
+In almost all games, no game time actually passes while the computer is
+waiting for your input. Use WAIT to force time to pass.
+
+   * Some games pass 3 or 5 turns when you type WAIT.
+
+   * Some games that keep track of time let you, for example, WAIT UNTIL
+     3:00. But don't worry that something big will happen while you
+     stand around twiddling your thumbs and looking at your watch.
+     Whenever something interesting happens, the game will at least give
+     you the option to stop waiting.
+
+In the early days, these were just about all the commands you needed to
+win a game. They are still used for the vast majority of turns, but
+modern games require different things. Look to the big list for ideas of
+what may be possible, but always be ready to try new things.
+
+
+CONJUNCTIONS & PRONOUNS
+
+You can make your commands more compact and efficient with ALL, AND,
+BUT, IT, and THEN. Note that a comma is the same as AND, and a period is
+the same as THEN.
+
+   >GET FIREHOSE AND WRENCH
+   >ATTACH FIREHOSE TO HYDRANT THEN TURN HYDRANT ON WITH WRENCH
+   >SPRAY ALL WINDOWS
+   >DROP ALL BUT HELMET, FISH FOOD
+   >GET LADDER. LEAN IT ON THE WALL. CLIMB IT
+   >ENTER WINDOW
+   >OPEN FISH FOOD
+   >FEED IT TO THE FISH
+
+   * As you may have noticed in the sequence, the word THE is optional.
+
+   * Some verbs usually won't participate with ALL or with an AND list.
+     GIVE ALL TO MERCHANT might make it too easy to figure out what the
+     merchant wants, and it wouldn't be very satisfying to find out that
+     way.
+
+   * Most games are pretty good at figuring out what you mean when you
+     use IT, but the amount of success varies from game to game. It
+     depends on how hard to author worked at it.
+
+   * Some games use the word THEM, too. If, for example, you just picked
+     up a long list of items, you could PUT THEM IN THE SAFE.
+
+   * If something important happens while the game is running a sequence
+     of commands you strung together with THEN, the sequence will stop
+     so you can change your plan if you want to.
+
+
+COMMUNICATING WITH NON-PLAYER CHARACTERS
+
+Most modern games feature at least one NPC, be they the sidekick or the
+villain, a magic mirror or the ship's computer. There are several ways
+provided for you to interact with them.
+
+To tell an NPC what to do, use this syntax:
+
+   >SUPERMAN, LEAP TALL BUILDING
+   >DOG, ROLL OVER AND PLAY DEAD
+
+When you want to exchange information you can use (in order from most
+common to least):
+
+   >SHOW BOOK TO LIBRARIAN
+   >ASK USHER ABOUT TARN
+   >ORACLE, TELL ME ABOUT THE GIANT PURPLE SNORKLEWACKER
+   >TELL BEOWULF ABOUT GRENDEL'S MOTHER
+   >ANSWER FOUR or ANSWER "FOUR"
+   >SAY "HELLO"
+   >HELLO SAILOR
+   >I AM REVEREND JONES
+
+Some games are set up to answer questions themselves, for general
+information. Just type things like:
+
+   >WHAT IS MJOLNIR
+   >WHERE IS FOOVIA
+   >WHO IS BLACK GERTRUDE
+
+
+WHEN THE GAME COMPLAINS
+
+If you type something that baffles the game entirely, it will respond
+with one of many error messages. The messages are designed to give you
+some idea about what the game didn't understand. Try to rephrase your
+command with different word order, synonyms, or alternative verbs.
+
+   * If your command fails after rephrasing, keep thinking. I once got
+     stuck at a huge vault door, thinking I was doing the combination
+     wrong, because the door wouldn't open when I PUSHed and PULLed on
+     it. I'm embarrassed to admit it took me a long time to try OPEN.
+
+   * If you've tried everything you can think of, and none of them work,
+     it may just not be possible. No author can anticipate everything.
+
+When you type something the game can almost figure out, it will ask you
+a question to clarify what you meant. You can retype the command
+correctly, if you want, or just answer the question.
+
+   >UNLOCK DOOR WITH KEY
+
+   Which key do you want to unlock the door with, the brass key or the
+   copper key?
+
+   >BRASS
+
+   Unlocked.
+
+   * This is what folks in the biz call "disambiguation."
+
+
+                     PART 3 -- Sample Transcript
+
+Let's look at a transcript to see this stuff in action. Your French
+poodle, Fifi, has been acting strangely lately. Besides talking and
+planning a revolution, she's sent you to fetch her a croissant. You're
+afraid failure could be perilous.
+
+   Pastry Shop
+
+   This little shop is fairly typical. The smell of doughnuts and
+   eclairs wafts all about you. A neon sign reading "HOT" hangs behind
+   the counter. The sign is on. There are no empty seats in the house.
+   The exit is south.
+
+   There is a teenager in a silly uniform taking orders from behind the
+   counter.
+
+   >TEENAGER, GIVE ME A CROISSANT
+
+   The teenager snorts frustratedly. "What's going on with the rush on
+   croissants?" Pointing, he indicates a woman at one of the tables.
+   "She just bought the last three. It'll be a while before we have
+   more."
+
+   Hmph. He obviously doesn't know how Fifi can get!
+
+   >LOOK AT WOMAN
+
+   She's sitting alone at a table near the door, engrossed in a
+   newspaper. Beside her is a plate of croissants.
+
+   The woman reaches absently for a croissant and takes a bite.
+
+   >GET CROISSANT
+
+   You sneak over to the woman's table and swipe a croissant off of her
+   plate. She is too busy reading the stock reports to notice.
+
+   >S
+
+   It's so rainy and slushy out there, it would ruin your croissant.
+   Fifi wouldn't like that.
+
+   >PUT CROISSANT IN POCKET
+
+   There's too much fluff and dirt in there. It would ruin the
+   croissant. That wouldn't go over well with Fifi.
+
+   >X COUNTER
+
+   The counter runs the length of the shop, with stools running all
+   along the near side. There are people sitting on each one. On top of
+   the counter are a cash register, and dispensers for napkins and
+   straws.
+
+   The woman reaches absently for a croissant and pauses, feeling
+   around.
+
+   >GET NAPKIN
+
+   Taken.
+
+   >PUT NAPKIN ON CROISSANT
+
+   You put the napkin on top of the croissant, but it doesn't look like
+   enough protection for this precious gift. Just to prove you right,
+   the napkin falls off.
+
+   The woman puts her newspaper down and eyes her plate suspiciously.
+
+   >WRAP NAPKIN AROUND CROISSANT
+
+   You wrap the croissant up in a nice little package.
+
+   >PUT PACKAGE IN POCKET
+
+   Done.
+
+   The woman seems to reach a conclusion and looks around the shop
+   excitedly. She sees you watching and twists her mouth at you
+   uncertainly. Finally, she pulls her plate directly in front of her
+   and returns to her newspaper.
+
+   >S
+
+   The bell on the door jangles as you leave the shop. The pastry smell
+   in your nostrils is replaced by several less pleasant scents.
+
+   [Your score has gone up by 5 points.]
+
+   Main Street
+
+   You are standing on the north sidewalk of Main Street, which
+   stretches endlessly east and west. To the north is a small shop. The
+   sign reads TASTEE PASTRIES. Cars are jammed bumper to bumper in the
+   street and people are jammed shoulder to shoulder on the sidewalk.
+   Rain dribbles down on everything.
+
+   There is a taxi here, parked at the taxi stand.
+
+   >OPEN TAXI DOOR. GET IN TAXI
+
+   Opened.
+
+   You climb into the back seat. It smells like wet dog in here.
+
+   >DRIVER, TAKE ME TO FOURTH AND ELM
+
+   "Woof," says the driver, flicking a switch that locks the doors. The
+   cab lurches into traffic and bounces off a Mercedes.
+
+
+               Part Four -- Managing Your Gaming Session
+
+These commands help you keep track of what is going on, control the
+gaming session, and customize some points of the presentation. Many of
+them do not take up any game time, since you don't actually do anything.
+
+AGAIN (sometimes G) is used to repeat the previous command without
+having to type it again.
+
+BRIEF tells the game that you want to receive a detailed description of
+locations only the first time you visit them. When you return to
+somewhere you've been before, you'll just see the name of the location,
+plus perhaps a list of some objects in the room. See SUPERBRIEF and
+VERBOSE.
+
+   * Don't forget that you can sometimes interact with objects that are
+     only mentioned in the detailed description. You can still get that
+     by typing LOOK.
+
+   * Most games start off in BRIEF mode.
+
+DATE, in some games that keep track of a calendar, tells you what day it
+is within the game.
+
+DIAGNOSE is used in some games. It tells you something about your
+general health, if you're tired, thirsty, hungry, etc.
+
+EXITS, in some games, will give you a list of the directions you can go
+from where you are.
+
+FULLSCORE (FULL), in some games, gives you your score plus a breakdown
+of all the things you did that earned you points. See SCORE.
+
+INDENT, in some games, toggles paragraph indentation. When on, each new
+paragraph will be indented.
+
+INVENTORY (sometimes I, sometimes INV) gives you a list of what you are
+carrying around with you. This is my command of choice when I need to
+waste a turn.
+
+LOAD is an old form of the RESTORE command.
+
+NORMAL is sometimes a synonym for BRIEF.
+
+NOTIFY is a command used to tell the game whether you want it to inform
+you when your score changes. I've heard rumors that there are people who
+don't want to know, or at least don't want to be told flat out. See
+SCORE.
+
+   * The default setting (with notable exceptions) is usually to keep
+     you updated.
+
+   * NOTIFY is a toggling command, used to turn notification both on and
+     off.
+
+OBJECTS, in some games, lists the objects you've had and where you left
+them.
+
+OOPS (sometimes O), in some games, helps you correct a spelling mistake.
+
+     >LIGHT LANTENR WITH TINDERBOX
+
+     I don't know the word "lantenr."
+
+     >OOPS LANTERN
+
+     You strike sparks from the tinderbox onto the lantern's mantle,
+     which begins to glow warmly.
+
+PLACES, in some games, lists the locations you have visited.
+
+PRONOUNS, in some games, will tell you what words the program will think
+of if you use the words IT, HIM, or HER.
+
+QUIT (Q) stops the game and ends the program. Don't forget to SAVE if
+you want to return to this point later.
+
+RESTART resets everything, and starts the game over from the beginning.
+
+RESTORE is the command you use to resume a game from a file that was
+created by the SAVE command. Type RESTORE, then when prompted give the
+name of the file you created with SAVE. You will find yourself right
+back where you were when you used the SAVE command. If restore doesn't
+work, try LOAD. See SAVE.
+
+SAVE is an essential feature of I-F games. It puts all the information
+about the current state of the game into a file that you can recall at a
+later time. Just type SAVE and the game will ask you the name of the
+file you want to save to. Once you give the name, your I-F session will
+continue right where you were. See RESTORE.
+
+   * There's more about using SAVE in the strategy section of this
+     document.
+
+SCORE reports the score you have achieved so far. Normally when you do
+something that advances your position in the game, you get points, and
+some games dock you points when you do something that hurts your
+position. The SCORE command traditionally tells you your score and ranks
+you in some hierarchy of titles based on that score. See NOTIFY.
+
+   * The way points are given and/or taken away can vary -- a lot. It
+     depends on how easy or hard the author wanted the game to be.
+
+   * Some games don't keep score at all, and some use less quantitative
+     methods of scoring, so expect to see some variation.
+
+   * It is often possible to "win" a game without getting all the
+     points. One I-F tradition is to make it really hard to earn one
+     "last lousy point."
+
+   * It is also possible in some games to get all the points, and still
+     not be able to "win" or even finish the game.
+
+SCRIPT lets you send game output to the printer. See UNSCRIPT.
+
+   * Some programs let you send output to a file instead. You'll have to
+     experiment to see what features any given program has.
+
+SHORT is sometimes a synonym for SUPERBRIEF.
+
+SPACE, in some games, toggles paragraph spacing. When on, a blank line
+will appear between paragraphs of text.
+
+SUPERBRIEF tells the game you only want the room name when you enter a
+room, even if you have never been there before. In superbrief mode, the
+objects in the room are not even listed. LOOK still functions normally.
+I'm not sure if I have ever used this mode for any appreciable length of
+time. See BRIEF and VERBOSE.
+
+TERSE is sometimes a synonym for BRIEF.
+
+TIME, in some games that keep track of a clock, tells you what time it
+is within the game.
+
+UNDO sets the game back to the state it was in before the previous
+command, as if it never happened.
+
+   * Not all games use UNDO, and some disable it in places, so make sure
+     you've saved your game recently if you want to try something crazy.
+
+   * UNDO is limited to backing up one turn in some games. Others let
+     you back up many times in a row.
+
+UNSCRIPT turns off printer or file output. See SCRIPT.
+
+VERBOSE tells the game to give you the long description of a room every
+time you enter it. It is like typing LOOK whenever you enter the room. I
+have always used this mode nearly exclusively, even on the old C-64,
+where it was a measurable performance drain. See BRIEF and SUPERBRIEF.
+
+
+                        Part V -- Basic Strategy
+
+It's easy to play a game, but sometimes it's hard to win. "Winning" is
+generally defined as reaching the most positive ending, but there are
+other ways to look at it. I've compiled a list of general hints and tips
+to make your journey a little easier. There's nothing here you wouldn't
+pick up yourself with experience, but some of it may help in your early
+campaigns.
+
+First and foremost, TAKE YOUR TIME and PAY ATTENTION. Things can change
+in a room while you are gone, and you might miss it if you don't read
+the description again. If you are hurrying through an area you already
+know well, something can still happen, and you could miss it. It's
+better to quit and come back later if you are getting impatient or bored
+than to let your concentration lapse and miss an important game event.
+You'll enjoy the game more.
+
+   * This is an easier piece of advice to give than to follow. That's
+     why I was a better gamer in my C-64 days than I am now. I had NO
+     CHOICE but to take my time, and that made it easier to pay
+     attention, too.
+
+It's a good idea to pause at the beginning of a gaming session, take a
+deep breath, and really get relaxed and open to the story. Remember that
+(in a good game) the author has put in a great amount of work to develop
+the story and the setting. Notice the little things -- a turn of phrase,
+an interesting room description -- which enhance the experience.
+
+Take notes whenever something happens that might prove significant
+later. Especially pay attention to things you will probably only read
+once.
+
+If you can arrange it, play with others. You'll find that even one other
+person can help considerably by bringing other experiences and
+perceptions to the game. With someone else along, you'll get stuck less,
+and you can brainstorm when it does happen.
+
+When you get good and stuck (and you will) turn the game off and go
+away. Let your unconscious mind work on it for a while. I completed 90%
+of a game in 1986 and put it away. When I fired it up again on Christmas
+break in 1988, I solved the puzzle I was stuck on and finished the game
+in less than ten minutes.
+
+If it crosses your mind to try something, try it. At the worst the game
+won't know what you're talking about or something bad will happen and
+you'll have to restore. At the best you'll get a humorous response or
+maybe even a hint about what you really should do -- or it might
+actually work!
+
+Watch for themes. Many games are written with repeating concepts which
+can shed light on what you are expected to do. If you find a red crystal
+shard, watch for a blue one, or a green one. They will probably all work
+similarly or together.
+
+Make a habit of asking yourself why things work or don't work, what's
+going on, what relationships exist between events and objects, etc.
+
+Fiddle with everything. There is a good chance (though it's not
+guaranteed) that you can look at an object more closely or interact with
+it if it is mentioned in the room description. It is vital that you
+experiment with all the things you come across, since you can never know
+what is important.
+
+Remember to LOOK AT all of the objects you find. If you come across a
+shovel, don't just assume it's a shovel, pick it up, and move on. If you
+look closer, you might find something important, like an inscription
+indicating that it's magic.
+
+Keep a list of all the objects in the game, and another list of the
+puzzles you haven't figured out yet. Study your lists and see if you can
+match up objects to puzzles. In most games, almost every object is used
+somewhere.
+
+You will probably not be able to carry around every portable object in
+the game at the same time, so it's important to use good inventory
+management techniques.
+
+   * Find a safe, centrally located area to act as an inventory
+     repository. Leave objects here when you are not using them. If a
+     game has lots of objects, you might want to designate more than one
+     room for different types of objects -- treasures, unused objects,
+     used objects, unimportant seeming objects, etc.
+
+   * Use GET and DROP to determine which objects are heavy and which are
+     light. Don't carry heavy objects around unnecessarily.
+
+   * Use bags, buckets, pockets, and other containers to hold objects.
+     This can help you carry more items around with you than you could
+     without the container. You might be able to gain even more room by
+     nesting full containers inside other containers.
+
+Mapping can be an important part of playing a game. Personally, I almost
+never map (somehow I remember how everything connects), but I still
+think it's a good thing. I have a friend who carefully maps every
+location. Not only does it help him play, but when he finishes the game,
+he's always got these really neat and enviable maps and notes catalogued
+in a stenographer's pad. It makes we WISH I mapped, too.
+
+   * Start in the middle of the page and work your way out.
+
+   * Don't try to make your first draft perfect. Make a rough draft map
+     first (in pencil), then when you've corrected mistakes and have an
+     idea how to center it, make a better copy on the other side or a
+     clean sheet.
+
+   * Label your map with room names and include the interesting features
+     and objects found in each room. Use lines to show connecting
+     passages.
+
+   * Don't forget to clearly label where you go up and down.
+
+   * It might come in handy to start a new map when you enter a new
+     level or general area.
+
+   * If you feel like being a conservationist and/or making an up-front
+     investment, you can use little pieces of scrap paper, string, and
+     thumbtacks on a cork board. Dry erase boards or chalk boards can be
+     useful, too. I can't in good conscience even mention sticky notes.
+
+It's not too hard to do things that will keep you from winning the game
+later. Some games make it pretty clear when this happens, and some won't
+do a thing to clue you in. You may find out that you need to restore to
+a much earlier save and do something differently.
+
+   * Save often and keep your old save files.
+
+   * Avoid doing the iffy things for as long as possible, then save
+     before you do any of them. Repeat as often as needed. This will
+     help keep you from having to repeat steps unnecessarily should you
+     need to restore.
+
+   * Keep track of the things you have done prior to each saved game.
+     This will eliminate guesswork and keep you from forgetting to do
+     something after you restore. I use save file names like 01begin and
+     02house to note what I've done and in what order.
+
+   * Minimize your moves. When you're planning to save, first restart or
+     restore and do all the new things in the smallest number of moves
+     you can, then save. Most games give you all the time in the world,
+     but some don't, so you'll want to conserve as many moves as you
+     can.
+
+
+                           Part 6 -- Conclusion
+
+Thus concludes our introduction to interactive fiction. There's so much
+more I'd like to tell you, but, honestly, I wouldn't know where to stop,
+and I'd get beyond the scope of a beginner's guide very quickly. Besides,
+I need to leave some things for you to discover yourself, don't I?
+
+If you find that you enjoy I-F, let me suggest two things:
+
+   * Pick up the old works. Fortunately, many classics have been
+     re-released several times, so they aren't too hard to find.
+
+   * If you find yourself with access to the Internet, tune in to the
+     newsgroup rec.games.int-fiction for a while. It's the best place to
+     start learning what's out there.
+
+You've heard a hundred times that every journey begins with a single
+step. Now I'm going to let you in on a secret. That first step is...
+
+   >VERBOSE
+
+You'll have to take it from here.
+
+Good luck,
+
+Joe

@@ -1,0 +1,62 @@
+! ----------------------------------------------------------------------------
+!   This demo game showcases the SCENERY feature in Metrocenter '84.
+! 
+!   Version 3 of the Z-Machine has a total object limit of 255. That's not
+!   much considering everything in Inform is an object. One of the most 
+!   common scenarios where you're sacrificing objects without adding much 
+!   functionality is when describing scenery. Metrocenter '84 has a library
+!   function that enables you to add flexible scenery with a low memory 
+!   footprint, that doesn't sacrifice any objects. You explicitly need to
+!   import the feature as seen below. It'll cost you 334 bytes.
+! ----------------------------------------------------------------------------
+
+Switches e;  ! Use Economize mode - abbreviations are in parser.h
+
+Constant Story      "Metrocenter '84 Scenery Demo Game";
+Constant Headline   "^By Fredrik Ramsberg.^";
+!Constant DEBUG;
+
+Include "Parser";
+
+! SceneryReply allows you to construct the behavior of your scenery. It could be 
+! set to a string or a routine, or left undefined. The standard response, except 
+! for EXAMINE, is: "No need to concern yourself with that."
+[SceneryReply;
+    Take: 
+        "Even if that were possible, it wouldn't help you.";
+    Search:
+        "There is no need searching this.";
+    default:
+        rfalse;
+];
+Include "Scenery"; ! Scenery must be included after Parser but before VerbLib.
+
+Include "VerbLib";
+Include "Grammar";
+
+Constant SL_MISTY "It's quite misty.";
+
+Object Moor "Moor"
+    with
+        description "You are on an eerie moor. A mysterious mist hangs in the air. A forest lies to the east.",
+        e_to Forest,
+        metro_scenery
+            'mysterious' 'mist' SL_MISTY
+            1 'air' "The air is remarkably fresh here.", ! If an object only has one dictionary word, set the first word to 1.
+    has light;
+
+Object Forest "Forest"
+    with
+        description "You are in a dense forest. You can't make out much anyway, due to the mist. The moor is to the west.",
+        w_to Moor,
+        metro_scenery
+            'mysterious' 'mist' SL_MISTY, ! The response, SL_MISTY here, could also be a routine!
+    has light;
+
+[Initialise ;
+    print "This is a demo game. You can refer to the mist as ~mist~, ~mysterious~ or ~mysterious mist~ in both locations.
+        You can also refer to the air on the moor.^^^";
+    location = Moor;
+];
+
+
