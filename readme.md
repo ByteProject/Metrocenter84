@@ -3,7 +3,7 @@
 
 RetroInform is an Inform 6 variant optimized for classic 8-bit and 16-bit computer systems. It consists of a forked version of the Inform 6.15 compiler and Metrocenter '84, a library that allows you to create very small Z-code files while retaining the typical Inform experience. Z-machine v3 is the standard target but the full range of v3 to v8 is supported. Metrocenter '84 is squeezed down to 20k for a game containing one object and one room. The library's name derives from [this song by Sunset Neon](https://www.youtube.com/watch?v=wKK4HIkepuY). See it as a journey back to the glory days of cheeky pop culture, where everything was still measured in kilobytes. We love the 80s and the text adventure heritage the decade brought to this world. If you ever felt the desire to create an Infocom style interactive fiction game for one of the home computers of your childhood, you came to the right place. Some stories are not told yet and we can't wait to see yours.
 
-<a href="Hibernated 2 running in our own C64 interpreter"><img src="https://p196.p4.n0.cdn.getcloudapp.com/items/Apujqlg7/hibernated2_screen_metro84.png" align="left" height="540" width="763" ></a>
+![Hibernated 2 running in our own C64 interpreter](https://p196.p4.n0.cdn.getcloudapp.com/items/Apujqlg7/hibernated2_screen_metro84.png "Hibernated 2 running in our own C64 interpreter")
 
 ## Origins
 
