@@ -75,8 +75,8 @@ Abbreviate "on.";
 Abbreviate "ste";
 #endif;
 
-Constant LibSerial "200420";
-Constant LibRelease "Metrocenter84 v1.0";
+Constant LibSerial "200521";
+Constant LibRelease "Metrocenter84 v1.1";
 
 System_file;
 
