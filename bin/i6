@@ -25,9 +25,9 @@
 #  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 #  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-#  Adaption to RetroInform / Metrocenter '84 by Stefan Vogt, Puddle Soft.
+#  Adaption to Metrocenter '84 by Stefan Vogt, Puddle Soft.
 
-inform=/usr/bin/inform
+inform=/usr/bin/inform6
 lib=/usr/share/retroinform/metro84
 a8bin=/usr/share/retroinform/bin/a8.bin
 v=-v3
@@ -46,12 +46,14 @@ main()
 
 usage()
 {
+	echo "METROCENTER '84 Inform 6 Wrapper"
 	echo "Usage: i6 game.inf"
 	echo "       i6 [-5] game.inf"
 	echo ""
 	echo "       -5 : create v5 release"
 	echo ""
 	echo "By default i6 creates Z-code v3 releases."
+	echo "No Atari 8-bit disk image output for v5 targets."
 	exit 0
 }
 
