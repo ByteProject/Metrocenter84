@@ -7,7 +7,7 @@ V = 0
 PREFIX = /usr
 MANDIR = $(PREFIX)/share/man/man6
 LIB = $(PREFIX)/share/retroinform
-MAIN = inform
+MAIN = inform6
 
 # collect all source .c files
 SRC = $(wildcard src/*.c)
