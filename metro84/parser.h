@@ -2587,7 +2587,6 @@ Array debug_anames table
    print "Release ", (0-->1) & $03ff, " / Serial number ";
    for (i=18:i<24:i++) print (char) 0->i;
    print " / Inform v"; inversion;
-   print "R";
    print " with ", (string) LibRelease;
 #ifdef DEBUG;
    print " D";
@@ -2636,6 +2635,10 @@ Array debug_anames table
   print_ret "*LIBERR ", n, " (", p1, ",", p2, ")*";
 #ENDIF;
 ];
+
+#ifdef DISABLE_RTERRORS;
+  [ RT__Err; ];
+#endif;
 
 ! ----------------------------------------------------------------------------
 
