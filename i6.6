@@ -25,7 +25,7 @@
 .\" SUCH DAMAGE.
 .\"
 .\"
-.Dd September 18, 2019
+.Dd May 21, 2020
 .Dt I6 6
 .Os
 .Sh NAME
@@ -53,48 +53,50 @@ very different pursuits, in their rewards and pleasures:
     The sheer joy of making things... the fascination of fashioning
     complex puzzle-like objects of interlocking moving parts and
     watching them work in subtle cycles... the delight of working in
-    such a tractable medium.  The programmer, like the poet, works only
-    slightly removed from pure thought-stuff.  He builds his castles in
+    such a tractable medium. The programmer, like the poet, works only
+    slightly removed from pure thought-stuff. He builds his castles in
     the air, from air, creating by exertion of the imagination.
     (Frederick P. Brooks, "The Mythical Man-Month", 1972)
 
-i6 is a wrapper tool for Retro-Inform, a compiler based on Inform 6.15.
-Version 6.15 was the last release which supported creating Z-code version
-3 games which are suitable to be played on 8-bit micros. Additional
-Atari XL/XE disk images are created alongside your Z-code files.
+i6 is the Metrocenter '84 wrapper tool for the Inform 6 compiler.
+Don't use compilers prior to 6.34. Additional Atari XL/XE disk images 
+are created alongside your Z-code files.
 
 More resources:
- http://www.inform-fiction.org
- http://www.brasslantern.org
- http://www.ifarchive.org
- http://en.wikipedia.org/wiki/Interactive_fiction
+http://www.inform-fiction.org
+https://github.com/DavidKinder/Inform6
+http://www.brasslantern.org
+http://www.ifarchive.org
+https://ifdb.tads.org/
+http://en.wikipedia.org/wiki/Interactive_fiction
 .Sh OPTIONS
 The following command line arguments are supported:
 .Bl -tag -width Fl
 .It Fl 5
-create Z-code V5 release.
+create Z-code V5 release (no Atari 8-bit output).
 .It Fl h
 show usage.
 .Sh EXAMPLES
 .nf
 $ i6 game.inf
 
-which compiles your source file into a Z-code v3 release.  It also
-creates Atari XL/XE MD disk image ready to be played.
+which compiles your source file into a Z-code v3 release. It also
+creates an Atari XL/XE MD disk image ready to be played.
 .Sh FILES
 .Bl -tag -width ".Pa /usr/share"
-.It Pa /usr/share/inform615
+.It Pa /usr/bin/i6
 .Sh SEE ALSO
 .Xr frotz 6
 .Sh AUTHORS
-.An Graham Nelson <graham@gnelson.demon.co.uk> -- Inform programming
-language and compiler
+.An Graham Nelson <graham@gnelson.demon.co.uk> -- language and compiler
 .An Andy Kosela <akosela@andykosela.com> -- i6 tool and packaging
-.An Stefan Vogt <stefan@8-bit.info> -- i6 adaption for RetroInform
+.An Stefan Vogt <stefan@8-bit.info> -- i6 adaption for Metrocenter '84
 .Sh THANKS TO
 Will Crowther and Don Woods for creating the original Adventure, Infocom
 for the Z-machine standard and memorable titles like Zork, Graham Nelson
-for designing this beautiful engine for creating worlds in text.
+for designing this beautiful engine for creating worlds in text, Andrew 
+Plotkin for making the current compiler (6.34 or newer) work again with 
+Z-code v3 targets.
 
 rec.arts.int-fiction and rec.games.int-fiction community of IF authors
 and enthusiasts.
