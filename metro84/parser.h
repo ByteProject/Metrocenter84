@@ -2636,7 +2636,7 @@ Array debug_anames table
 #ENDIF;
 ];
 
-#ifdef DISABLE_RTERRORS;
+#ifndef ENABLE_INFORM_RT_ERR;
   [ RT__Err; ];
 #endif;
 
