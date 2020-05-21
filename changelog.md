@@ -2,6 +2,12 @@
 
 ## Metrocenter '84 Library
 
+### 1.1
+
+* updated codebase to use the standard Inform 6 compiler (6.34 or newer)
+* inheritance of RT_Err disabled by default
+* constant ENABLE_INFORM_RT_ERR to force Inform 6 runtime error inheritance
+
 ### 1.0
 
 * constant ENABLE_WEAR activates clothing and wearable objects
@@ -19,11 +25,3 @@
 ### 0.9 beta
 
 * forked from mInform 1.1
-
-## Inform Compiler
-
-### 6.15R
-
-* varying strings implementation
-
-* forked from Inform 6.15
