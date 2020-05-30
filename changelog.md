@@ -2,6 +2,14 @@
 
 ## Metrocenter '84 Library
 
+### 1.2
+
+* constant ENABLE_NUMBERPARSING to activate numeral recognition
+* number parsing logic ported from Inform 6.2 lib
+* backported NumberWord() and TryNumber() routines
+* added special_number globals
+* number token implementation for grammar definitions
+
 ### 1.1
 
 * updated codebase to use the standard Inform 6 compiler (6.34 or newer)
