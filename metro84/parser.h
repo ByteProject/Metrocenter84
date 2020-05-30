@@ -75,8 +75,8 @@ Abbreviate "on.";
 Abbreviate "ste";
 #endif;
 
-Constant LibSerial "200521";
-Constant LibRelease "Metrocenter84 v1.1";
+Constant LibSerial "200530";
+Constant LibRelease "Metrocenter84 v1.2";
 
 System_file;
 
@@ -308,13 +308,19 @@ Global action          = 0;          ! Thing he is asked to do
 Global inp1            = 0;          ! First parameter
 Global inp2            = 0;          ! Second parameter
 Global special_number1 = 0;          ! First number, if one was typed
+#ifdef ENABLE_NUMBERPARSING;
+Global special_number2 = 0;          ! Second number, if two were typed
+#endif;
 Global noun            = 0;          ! First noun
 Global second          = 0;          ! Second noun
 Global special_word    = 0;          ! Dictionary address of "special"
+#ifdef ENABLE_NUMBERPARSING;
+Global special_number  = 0;          ! The number, if a number was typed
+#endif;
 Global parsed_number   = 0;          ! For user-supplied parsing routines
 global meta;                         ! Verb is a meta-command (such as "save")
 global reason_code;                  ! Reason for calling a life
-global consult_from;                 ! Word that "consult"�topic starts on
+global consult_from;                 ! Word that "consult" topic starts on
 global consult_words;                ! ...and number of words in topic
 
 #ifdef DEBUG;
@@ -353,6 +359,10 @@ global pcount2;                 ! so far
 
 global parameters;              ! Parameters (objects) entered so far
 global params_wanted;           ! Number needed (may change in parsing)
+
+#ifdef ENABLE_NUMBERPARSING;
+global nsns;                    ! Number of special_numbers entered so far
+#endif;
 
 global inferfrom;               ! The point from which the rest of the
                                 ! command must be inferred
@@ -773,7 +783,10 @@ Constant ASKSCOPE_PE  18;
         inferfrom=0;
         parameters=0;
         params_wanted = line_address->0;
-        special_word=0; 
+        special_word=0;
+        #ifdef ENABLE_NUMBERPARSING;
+        nsns=0; special_number=0;
+        #endif;
         etype=STUCK_PE;
         action_to_be = line_address->7;
 
@@ -835,7 +848,10 @@ Constant ASKSCOPE_PE  18;
         not_holding=0;
         inferfrom=0;
         parameters=0;
-        special_word=0; 
+        special_word=0;
+        #ifdef ENABLE_NUMBERPARSING;
+        nsns=0; special_number=0;
+        #endif; 
         etype=STUCK_PE;
         action_to_be = line_address->7;
         wn=verb_wordnum+1;
@@ -1029,6 +1045,9 @@ Constant ASKSCOPE_PE  18;
         {   special_word=NextWord();
             verb_wordnum++;
         }
+        #ifdef ENABLE_NUMBERPARSING;
+        special_number=TryNumber(verb_wordnum);
+        #endif;
         results-->0=##NotUnderstood;
         results-->1=2;
         results-->2=1; special_number1=special_word;
@@ -1051,12 +1070,16 @@ Constant ASKSCOPE_PE  18;
                  for (m=0:m<8:m++) pattern-->m = pattern2-->m;
                  pcount=pcount2; PrintCommand(0,1); print ".^";
              }
+    #ifdef ENABLE_NUMBERPARSING;
+    if (etype==NUMBER_PE)
+                 print "I didn't understand that number.^";
+    #endif;
     if (etype==CANTSEE_PE)
              {   print "You can't see any such thing.^"; }
     if (etype==ANIMA_PE)
                  print "You can only do that to something animate.^";
     if (etype==VERB_PE)
-                 print "Unknown command.^";
+                 print "Unknown verb.^";
     if (etype==SCENERY_PE)
                  print "No need to concern yourself with that.^";
     if (etype==ASKSCOPE_PE)
@@ -1141,6 +1164,38 @@ Constant ASKSCOPE_PE  18;
    if (parser_trace>=3) print "  [Object list from word ", wn, "]^";
 #endif;
 
+#ifdef ENABLE_NUMBERPARSING;
+!  Firstly, get rid of tokens 7 and 8 ("special" and "number"), and
+!  tokens which are entirely handed out to outside routines
+
+    if (token==7)
+    {   l=TryNumber(wn);
+        if (l~=-1000)
+        {   if (nsns==0) special_number1=l; else special_number2=l;
+            special_number=l;
+            nsns++;
+            #ifdef DEBUG;
+            if (parser_trace>=3)
+                print "  [Read special as the number ", l, "]^";
+            #endif;
+        }
+        #ifdef DEBUG;
+        if (parser_trace>=3)
+            print "  [Read special word at word number ", wn, "]^";
+        #endif;
+        special_word=NextWord(); single_object=1; jump PassToken;
+    }
+    if (token==8)
+    {   l=TryNumber(wn++);
+        if (l==-1000) { etype=NUMBER_PE; rfalse; }
+        #ifdef DEBUG;
+        if (parser_trace>=3) print "  [Read number as ", l, "]^";
+        #endif;
+        if (nsns++==0) special_number1=l; else special_number2=l;
+        single_object=1; jump PassToken;
+    }
+#endif;
+
     if (token>=48 && token<80)
     {   l=indirect(#preactions_table-->(token-48));
 #ifdef DEBUG;
@@ -1151,7 +1206,15 @@ Constant ASKSCOPE_PE  18;
         if (l==0) { params_wanted--; rtrue; }  ! An adjective after all...
         if (l==1)
         {   
-            special_number1 = parsed_number; !TBD, this is where ASK ROBOT ABOUT X broke.
+            #ifdef ENABLE_NUMBERPARSING;
+            if (nsns==0) special_number1=parsed_number;
+            else special_number2=parsed_number;
+            nsns++;
+            #endif;
+            #ifndef ENABLE_NUMBERPARSING;
+            special_number1 = parsed_number;
+            !TBD, this is where ASK ROBOT ABOUT X broke.
+            #endif;
         }
         if (l==REPARSE_CODE) return l;
         single_object=l; jump PassToken;
@@ -2056,6 +2119,91 @@ Constant ASKSCOPE_PE  18;
    return parse->(wordnum*4);
 ];
 
+#ifdef ENABLE_NUMBERPARSING;
+! ----------------------------------------------------------------------------
+!  NumberWord - fairly self-explanatory
+! ----------------------------------------------------------------------------
+
+[ NumberWord o;
+  if (o=='one') return 1;
+  if (o=='two') return 2;
+  if (o=='three') return 3;
+  if (o=='four') return 4;
+  if (o=='five') return 5;
+  if (o=='six') return 6;
+  if (o=='seven') return 7;
+  if (o=='eight') return 8;
+  if (o=='nine') return 9;
+  if (o=='ten') return 10;
+  if (o=='eleven') return 11;
+  if (o=='twelve') return 12;
+  if (o=='thirteen') return 13;
+  if (o=='fourteen') return 14;
+  if (o=='fifteen') return 15;
+  if (o=='sixteen') return 16;
+  if (o=='seventeen') return 17;
+  if (o=='eighteen') return 18;
+  if (o=='nineteen') return 19;
+  if (o=='twenty') return 20;
+  return 0;
+];
+
+! ----------------------------------------------------------------------------
+!  TryNumber is the only routine which really does any character-level
+!  parsing, since that's normally left to the Z-machine.
+!  It takes word number "wordnum" and tries to parse it as an (unsigned)
+!  decimal number, returning
+!
+!  -1000                if it is not a number
+!  the number           if it has between 1 and 4 digits
+!  10000                if it has 5 or more digits.
+!
+!  (The danger of allowing 5 digits is that Z-machine integers are only
+!  16 bits long, and anyway this isn't meant to be perfect.)
+!
+!  Using NumberWord, it also catches "one" up to "twenty".
+!
+!  Note that a game can provide a ParseNumber routine which takes priority,
+!  to enable parsing of odder numbers ("x45y12", say).
+! ----------------------------------------------------------------------------
+
+[ TryNumber wordnum   i j c num len mul tot d digit;
+
+   i=wn; wn=wordnum; j=NextWord(); wn=i;
+   j=NumberWord(j); if (j>=1) return j;
+
+   i=wordnum*4+1; j=parse->i; num=j+buffer; len=parse->(i-1);
+
+   tot=ParseNumber(num, len);  if (tot~=0) return tot;
+
+   if (len>=4) mul=1000;
+   if (len==3) mul=100;
+   if (len==2) mul=10;
+   if (len==1) mul=1;
+
+   tot=0; c=0; len=len-1;
+
+   for (c=0:c<=len:c++)
+   {   digit=num->c;
+       if (digit=='0') { d=0; jump digok; }
+       if (digit=='1') { d=1; jump digok; }
+       if (digit=='2') { d=2; jump digok; }
+       if (digit=='3') { d=3; jump digok; }
+       if (digit=='4') { d=4; jump digok; }
+       if (digit=='5') { d=5; jump digok; }
+       if (digit=='6') { d=6; jump digok; }
+       if (digit=='7') { d=7; jump digok; }
+       if (digit=='8') { d=8; jump digok; }
+       if (digit=='9') { d=9; jump digok; }
+       return -1000;
+     .digok;
+       tot=tot+mul*d; mul=mul/10;
+   }
+   if (len>3) tot=10000;
+   return tot;
+];
+#endif;
+
 ! ----------------------------------------------------------------------------
 !  Useful routine: unsigned comparison (for addresses in Z-machine)
 !    Returns 1 if x>y, 0 if x=y, -1 if x<y
@@ -2220,11 +2368,17 @@ Constant ASKSCOPE_PE  18;
        noun=inp1; second=inp2;
        if (inp1==1) 
        {
-            noun=special_number1;
+           noun=special_number1;
        }
        if (inp2==1)
-       {   
-          second=special_number1;
+       {
+           #ifdef ENABLE_NUMBERPARSING;
+           if (inp1==1) second=special_number2;
+           else second=special_number1;
+           #endif;
+           #ifndef ENABLE_NUMBERPARSING;
+           second=special_number1;
+           #endif;
        }
 
        !  noun and second equal inp1 and inp2, except that in place of 1
