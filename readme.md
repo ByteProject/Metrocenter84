@@ -11,24 +11,23 @@ Metrocenter '84 started as an in-house project at [Puddle Software](http://puddl
 
 ## Status
 
-Metrocenter '84 library: `v1.1`.
+Metrocenter '84 library: `v1.2`.
 
 We are actively working on the library, so feel free to come back every now an then and check if we pushed a new version. The project is considered stable and usable.
 
-The Commodore 8-bit interpreter seen on the picture, which works on C64, C128, VIC-20, Plus/4 and PET, is not released yet. We plan to add it at a later date.
-
 ## Features
 
+* low memory footprint compared to the standard Inform 6 library, optimized for retro computers
+* modular routines for clothing and parsing of numbers
 * metro_scenery lib function for flexible, memory efficient, non-object consuming scenery
-* clothing is disabled by default, you can either save 500 bytes or enable it
-* several useful lib features have been implemented or backported from later Inform versions
+* several useful lib features were backported from later Inform versions
 * by standard the library uses a supplied set of abbreviations but you may add your own as well
 * it's possible to completely disable Inform's built-in inference
 * when compiling, an Atari 8-bit disk image is created too, allowing instant testing on 8-bit
 
 ## Documentation and examples
 
-Please head to the [wiki](https://github.com/ByteProject/Metrocenter84/wiki) for an extensive documentation. In addition, we provided a reasonable set of tutorial files, literature and references in the `tutor` folder. A template (shell) as a starting point for your own adventure, a sample game (the famous Cloak of Darkness) and various files showcasing features unique to Metrocenter '84 can be found in `demos`.
+Please head to the [wiki](https://github.com/ByteProject/Metrocenter84/wiki) for the library documentation. In addition, we provided a reasonable set of tutorial files, literature and references in the `tutor` folder. A template (shell) as a starting point for your own adventure, a sample game (the famous Cloak of Darkness) and various files showcasing features unique to Metrocenter '84 can be found in `demos`.
 
 ## Inform 6 compiler requirements
 
