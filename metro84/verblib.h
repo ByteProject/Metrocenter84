@@ -1026,7 +1026,7 @@ Constant NOARTICLE_BIT 4096;  !  Print no articles, definite or not
            if (n==1) "Sorry, can't do that.";
            if (n==3) { print "You have died"; rtrue; }
            if (n==4) { print "You have won"; rtrue; }
-           if (n==5) "^Restart, Restore or Quit?";
+           if (n==5) "^Restore, Restart or Quit?";
   Order:   CDefArt(x1); " has better things to do.";
   Restore: if (n==1) "Failed.";
            "Ok.";
