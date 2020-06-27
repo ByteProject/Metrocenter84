@@ -1079,7 +1079,7 @@ Constant ASKSCOPE_PE  18;
     if (etype==ANIMA_PE)
                  print "You can only do that to something animate.^";
     if (etype==VERB_PE)
-                 print "Unknown verb.^";
+                 print "Unknown command.^";
     if (etype==SCENERY_PE)
                  print "No need to concern yourself with that.^";
     if (etype==ASKSCOPE_PE)
@@ -1672,9 +1672,8 @@ Constant ASKSCOPE_PE  18;
     i=parent(actor);
     if (i has visited && Refers(i,w)==1) e=SCENERY_PE;
     if (etype>e) return etype;
-    return e;
+    return CANTSEE_PE;
 ];
-
 
 ! ----------------------------------------------------------------------------
 !  The UserFilter routine consults the user's filter (or checks on attribute)
