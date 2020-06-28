@@ -55,6 +55,7 @@ install:
 	ln -s $(LIB)/metro84/parser.h $(DESTDIR)$(LIB)/metro84/Parser.h
 	ln -s $(LIB)/metro84/verblib.h $(DESTDIR)$(LIB)/metro84/VerbLib.h
 	ln -s $(LIB)/metro84/scenery.h $(DESTDIR)$(LIB)/metro84/Scenery.h
+	ln -s $(LIB)/metro84/flags.h $(DESTDIR)$(LIB)/metro84/Flags.h
 
 .PHONY: uninstall
 uninstall:
