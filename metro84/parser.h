@@ -75,8 +75,8 @@ Abbreviate "on.";
 Abbreviate "ste";
 #endif;
 
-Constant LibSerial "200530";
-Constant LibRelease "Metrocenter84 v1.2";
+Constant LibSerial "200628";
+Constant LibRelease "Metrocenter84 v1.3";
 
 System_file;
 
@@ -1080,8 +1080,6 @@ Constant ASKSCOPE_PE  18;
                  print "You can only do that to something animate.^";
     if (etype==VERB_PE)
                  print "Unknown command.^";
-    if (etype==SCENERY_PE)
-                 print "No need to concern yourself with that.^";
     if (etype==ASKSCOPE_PE)
     {            scope_stage=3;
                  if (indirect(scope_error)==-1)
@@ -1653,24 +1651,13 @@ Constant ASKSCOPE_PE  18;
 ! ----------------------------------------------------------------------------
 !  The CantSee routine returns a good error number for the situation where
 !  the last word looked at didn't seem to refer to any object in context.
-!
-!  The idea is that: if the actor is in a location (but not inside something
-!  like, for instance, a tank which is in that location) then an attempt to
-!  refer to one of the words listed as meaningful-but-irrelevant there
-!  will cause "you don't need to refer to that in this game" rather than
-!  "no such thing" or "what's 'it'?".
-!  (The advantage of not having looked at "irrelevant" local nouns until now
-!  is that it stops them from clogging up the ambiguity-resolving process.
-!  Thus game objects always triumph over scenery.)
 ! ----------------------------------------------------------------------------
 
-[ CantSee  i w e;
+[ CantSee  w e;
     if (scope_token~=0) { scope_error = scope_token; return ASKSCOPE_PE; }
 
     wn--; w=NextWord();
     e=CANTSEE_PE;
-    i=parent(actor);
-    if (i has visited && Refers(i,w)==1) e=SCENERY_PE;
     if (etype>e) return etype;
     return CANTSEE_PE;
 ];
