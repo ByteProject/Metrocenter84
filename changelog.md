@@ -2,6 +2,13 @@
 
 ## Metrocenter '84 Library
 
+### 1.3
+
+* flags library function to provide on/off flags that only take up one bit of memory
+* removed obsolete SCENERY_PE support from Parser (use metro_scenery instead)
+* order of end message more Infocom like now
+* other minor Parser changes
+
 ### 1.2
 
 * constant ENABLE_NUMBERPARSING to activate numeral recognition
