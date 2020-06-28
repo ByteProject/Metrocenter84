@@ -3,24 +3,25 @@
 
 Metrocenter '84 is an Inform 6 library optimized for classic 8-bit and 16-bit computer systems. It allows you to create very small Z-code files while retaining the typical Inform experience. Z-machine v3 is the standard target but the full range of v3 to v8 is supported. Metrocenter '84 is squeezed down to 20k for a game containing one object and one room. The library's name derives from [this song by Sunset Neon](https://www.youtube.com/watch?v=wKK4HIkepuY). See it as a journey back to the glory days of cheeky pop culture, where everything was still measured in kilobytes. We love the 80s and the text adventure heritage the decade brought to this world. If you ever felt the desire to create an Infocom style interactive fiction game for one of the home computers of your childhood, you came to the right place. Some stories are not told yet and we can't wait to see yours.
 
-![Hibernated 2 running in our own C64 interpreter](https://p196.p4.n0.cdn.getcloudapp.com/items/Apujqlg7/hibernated2_screen_metro84.png "Hibernated 2 running in our own C64 interpreter")
+![Hibernated 2 running in Ozmoo on the C64](https://p196.p4.n0.cdn.getcloudapp.com/items/wbuWYXJb/hib2_ozmoo.png "Hibernated 2 running in Ozmoo on the C64")
 
 ## Origins
 
-Metrocenter '84 started as an in-house project at [Puddle Software](http://puddlesoft.net/), with the purpose of writing a sophisticated sequel to our award-winning adventure [Hibernated](https://8bitgames.itch.io/hibernated1). We used the wonderful mInform library by Dave Bernazzani as a base and then ended up adding new features, backporting routines and fixing bugs. The changelog in this repository helps you understand the progress. We also added Andy Kosela's amazing i6 utility.
+Metrocenter '84 started as an in-house project at [Puddle Software](http://puddlesoft.net/), with the purpose of writing a sophisticated sequel to our award-winning adventure [Hibernated](https://8bitgames.itch.io/hibernated1). We used the wonderful mInform library by Dave Bernazzani as a base and then ended up adding new features, backporting routines and fixing bugs. The changelog in this repository helps you understand the progress. We also added a customized version of Andy Kosela's amazing i6 utility.
 
 ## Status
 
-Metrocenter '84 library: `v1.3`.
+Metrocenter '84 library: `v1.3` codename `Arcturus`.
 
 We are actively working on the library, so feel free to come back every now an then and check if we pushed a new version. The project is considered stable and usable.
 
 ## Features
 
 * low memory footprint compared to the standard Inform 6 library, optimized for retro computers
-* modular routines for clothing and parsing of numbers
+* modular routines for various things like clothing and parsing of numbers
 * metro_scenery lib function for flexible, memory efficient, non-object consuming scenery
-* several useful lib features were backported from later Inform versions
+* library feature for on / off flags that only take a single bit of memory
+* several useful lib features were backported from current Inform
 * by standard the library uses a supplied set of abbreviations but you may add your own as well
 * it's possible to completely disable Inform's built-in inference
 * when compiling, an Atari 8-bit disk image is created too, allowing instant testing on 8-bit
@@ -37,7 +38,7 @@ You need to use compiler version `6.34` or newer for Metrocenter '84 to work. Th
 
 ## Building and installing
 
-If you are neither interested in using the wrapper utility nor the installer, you find the library files in the `metro84` folder, which likely is the scenario on a Windows-machine. You need a Unix-like operating system (Linux, macOS, BSD) to take full advantage of Metrocenter '84. Download the compiler sources from [here](https://github.com/DavidKinder/Inform6) and put them in the `src` folder. Then, you only need to:
+If you are neither interested in using the wrapper utility nor the installer, you find the library files in the `metro84` folder, which likely is the scenario on a Windows-machine. You need a Unix-like operating system (Linux is recommended) to take full advantage of Metrocenter '84. Download the compiler sources from [here](https://github.com/DavidKinder/Inform6) and put them in the `src` folder. Then, you only need to:
 
   `$ make`
   
