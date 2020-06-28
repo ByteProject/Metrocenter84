@@ -11,7 +11,7 @@ Metrocenter '84 started as an in-house project at [Puddle Software](http://puddl
 
 ## Status
 
-Metrocenter '84 library: `v1.2`.
+Metrocenter '84 library: `v1.3`.
 
 We are actively working on the library, so feel free to come back every now an then and check if we pushed a new version. The project is considered stable and usable.
 
