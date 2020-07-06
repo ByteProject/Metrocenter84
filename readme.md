@@ -3,11 +3,11 @@
 
 Metrocenter '84 is an Inform 6 library optimized for classic 8-bit and 16-bit computer systems. It allows you to create very small Z-code files while retaining the typical Inform experience. Z-machine v3 is the standard target but the full range of v3 to v8 is supported. Metrocenter '84 is squeezed down to 20k for a game containing one object and one room. The library's name derives from [this song by Sunset Neon](https://www.youtube.com/watch?v=wKK4HIkepuY). See it as a journey back to the glory days of cheeky pop culture, where everything was still measured in kilobytes. We love the 80s and the text adventure heritage the decade brought to this world. If you ever felt the desire to create an Infocom style interactive fiction game for one of the home computers of your childhood, you came to the right place. Some stories are not told yet and we can't wait to see yours.
 
-![Hibernated 2 running in Ozmoo on the C64](https://p196.p4.n0.cdn.getcloudapp.com/items/wbuWYXJb/hib2_ozmoo.png "Hibernated 2 running in Ozmoo on the C64")
+![Behind Closed Doors 9 by John Wilson, Zenobi Software](https://p196.p4.n0.cdn.getcloudapp.com/items/E0uzL7WG/1.png "Behind Closed Doors 9 by John Wilson, Zenobi Software")
 
 ## Origins
 
-Metrocenter '84 started as an in-house project at [Puddle Software](http://puddlesoft.net/), with the purpose of writing a sophisticated sequel to our award-winning adventure [Hibernated](https://8bitgames.itch.io/hibernated1). We used the wonderful mInform library by Dave Bernazzani as a base and then ended up adding new features, backporting routines and fixing bugs. The changelog in this repository helps you understand the progress. We also added a customized version of Andy Kosela's amazing i6 utility.
+Metrocenter '84 started as an in-house project at [Puddle Software](http://puddlesoft.net). We used the wonderful mInform library by Dave Bernazzani as a base and then ended up adding new features, backporting routines and fixing bugs. The changelog in this repository helps you understand the progress. We also added a customized version of Andy Kosela's amazing i6 utility.
 
 ## Status
 
@@ -51,6 +51,14 @@ If you are neither interested in using the wrapper utility nor the installer, yo
 This will create game.z3 and game.atr. Yes, it's that simple.
 
 Please refer to the synopsis of the compiler in case you're not using the i6 utility.
+
+## Updates
+
+You find an update tool in the root directory, which requires Ruby for usage. It will quickly fetch the latest library files for you. On a Linux system, everything should work pretty much out of the box. Windows users need to open the script first and update the path to their Metro library files. Please note that it will overwrite any local changes you've made.
+
+## Metro or Puny? 
+
+It's important to mention that Metrocenter '84 is not the only Inform 6 library suitable to target 8-bit machines. There also is the amazing [PunyInform](https://github.com/johanberntsson/PunyInform) by Fredrik Ramsberg and Johan Berntsson which we highly recommend checking out. The difference between the two libraries is that Metro '84 is an optimized and reduced variant of the regular Inform 6 library and as such, comes with Inform's standard parser and corresponds to known  techniques, e.g. usage of `ParserError`. Being based on the Inform 6 lib, Metro's code is very stable and relatively bug free. Puny on the other hand had been rewritten from scratch and it is very well designed. It is a modern, contemporary approach, well performing with fresh ideas and concepts. We actually recommend trying out Puny first. It will give you so much in return! Really.
 
 ## Credits
 
